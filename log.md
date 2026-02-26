@@ -2,7 +2,7 @@
 
 **Sugerencia de escritura:** Priorizar la acción y el valor aportado sobre el nombre del archivo para una lectura más fluida del progreso. Sigue los ejemplos anteriores.
 
-## [2026-02-25] - Inicio del Proyecto
+## 2026-02-25 - Inicio del Proyecto
 
 - Sesión inicial con Claude para definir la primera versión del Brief.
 - Creación del documento principal con descripción, arquitectura y reglas del Agente.
@@ -19,3 +19,12 @@
 - Migración del stack de Backend a Python/FastAPI.
 - Actualización de reglas de trabajo y estructura general.
 
+## 2026-02-26 - Reglas MaC
+
+- Reformulación de reglas de agente IA, ahora son reglas [MaC](MaC.md) (Management as Code) pensadas para ser genéricas.
+- Diseño de sistema de dos modos de operación (Consultivo/Proactivo) para resolver contradicción en las reglas originales.
+- Radar de contexto: mecanismo para que el agente señale información relevante que se pasa por alto.
+- Regla de coherencia documental para propagar cambios entre documentos.
+- Separación de reglas técnicas en `docs/technical-guidelines.md`, fuera del MaC.
+- Creados `AGENTS.md`, `session-TEMPLATE.md`, `MaC.md`.
+- Sección Contributing agregada al README.
