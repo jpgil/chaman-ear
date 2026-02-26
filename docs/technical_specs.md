@@ -294,7 +294,7 @@ El servidor (que operará exclusivamente entorno **localhost**) actúa como **pr
 
 1. **Recibir** el mensaje `start` del cliente y extraer `context` + `formatInstruction`.
 2. **Construir** el system prompt combinando las instrucciones base + contexto + formato.
-3. **Abrir** una conexión WebSocket con la API de Gemini Live, enviando el system prompt.
+3. **Abrir** una conexión WebSocket con la API de Google AI Studio Live, enviando el system prompt.
 4. **Reenviar** los chunks de audio binario del cliente a Gemini.
 5. **Traducir** la respuesta de Gemini en eventos tipados (`partial`, `final`) y enviarlos al cliente.
 6. **Manejar** el mensaje `stop`: forzar un evento `final` para texto pendiente y cerrar ambas conexiones.
@@ -374,8 +374,8 @@ Estos puntos deben resolverse durante las primeras fases de implementación:
 
 | Punto | Pregunta | Impacto |
 |-------|----------|---------|
-| **Gemini Live API** | ¿La API acepta WebSocket nativo desde Node.js, o requiere su SDK oficial (`google-genai`)? | Define si el servidor usa WebSocket directo o una librería wrapper. |
-| **Node.js vs Python** | ¿La integración con Gemini Live es más madura en Python? | Podría cambiar el runtime del servidor. |
-| **Formato de audio** | ¿Gemini Live acepta WebM/Opus directamente, o requiere PCM/WAV? | Si requiere PCM, el servidor necesitaría transcodificar o el SDK debería capturar en PCM. |
-| **Eventos parciales** | ¿Gemini Live emite hipótesis parciales nativamente, o solo emite texto cuando considera una unidad completa? | Define si los eventos `partial` son nativos de Gemini o los debe sintetizar el servidor. |
-| **Límites de contexto** | ¿Cuál es el límite real de tokens del system prompt en Gemini Live? | Define el tamaño máximo real del campo `context`. |
+| **Google AI Studio Live API** | ¿La API acepta WebSocket nativo desde Node.js, o requiere su SDK oficial (`google-genai`)? | Define si el servidor usa WebSocket directo o una librería wrapper. |
+| **Node.js vs Python** | ¿La integración con Google AI Studio Live API es más madura en Python? | Podría cambiar el runtime del servidor. |
+| **Formato de audio** | ¿Google AI Studio Live API acepta WebM/Opus directamente, o requiere PCM/WAV? | Si requiere PCM, el servidor necesitaría transcodificar o el SDK debería capturar en PCM. |
+| **Eventos parciales** | ¿Google AI Studio Live API emite hipótesis parciales nativamente, o solo emite texto cuando considera una unidad completa? | Define si los eventos `partial` son nativos de Gemini o los debe sintetizar el servidor. |
+| **Límites de contexto** | ¿Cuál es el límite real de tokens del system prompt en Google AI Studio Live API? | Define el tamaño máximo real del campo `context`. |

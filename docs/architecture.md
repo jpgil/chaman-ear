@@ -25,7 +25,7 @@ graph TD
     end
 
     subgraph "Capa 3: Gemini"
-        GeminiAPI[Google Gemini Live API]
+        GeminiAPI[Google AI Studio Live API]
     end
 
     User -->|Habla| MediaRecorder
@@ -45,7 +45,7 @@ graph TD
 |------|----------------|------------|-----------|
 | **Navegador** | Captura de audio, renderizado de texto, gestión del contexto del usuario | SDK JS (npm) + App Demo (HTML/CSS/JS) | Cliente (browser) |
 | **Servidor** | Proxy inteligente: recibe audio del cliente, lo reenvía a Gemini, traduce la respuesta en eventos estructurados | Node.js + WebSocket server | Servidor (local o cloud) |
-| **Gemini** | Reconocimiento de voz + reformulación semántica en un solo paso (ASR + LLM unificados) | Google Gemini Live API | Servicio externo (Google) |
+| **Gemini** | Reconocimiento de voz + reformulación semántica en un solo paso (ASR + LLM unificados) | Google AI Studio Live API | Servicio externo (Google) |
 
 ---
 
@@ -64,7 +64,7 @@ USUARIO habla
     (junto con contexto + instrucción de formato en el mensaje inicial)
     |
     v
-[3] Servidor reenvía el stream de audio a Gemini Live API
+[3] Servidor reenvía el stream de audio a Google AI Studio Live API
     (incluyendo el system prompt construido a partir del contexto del usuario)
     |
     v
@@ -97,7 +97,7 @@ USUARIO ve texto limpio y refinado en pantalla
 
 ### Por qué WebSocket (y no HTTP streaming, SSE, etc.)
 
-La razón más determinante: **Google Gemini Live API utiliza WebSocket internamente** como su protocolo de comunicación. Esto significa que el servidor ya necesita mantener una conexión WebSocket abierta con Gemini durante toda la sesión de dictado. Usar el mismo protocolo entre el cliente y el servidor elimina la necesidad de traducir entre protocolos y simplifica drásticamente la arquitectura del servidor, que actúa esencialmente como un proxy WebSocket-a-WebSocket.
+La razón más determinante: **Google AI Studio Live API utiliza WebSocket internamente** como su protocolo de comunicación. Esto significa que el servidor ya necesita mantener una conexión WebSocket abierta con la API durante toda la sesión de dictado. Usar el mismo protocolo entre el cliente y el servidor elimina la necesidad de traducir entre protocolos y simplifica drásticamente la arquitectura del servidor, que actúa esencialmente como un proxy WebSocket-a-WebSocket.
 
 Además, frente a las alternativas:
 

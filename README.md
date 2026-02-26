@@ -8,7 +8,7 @@
 
 ## Arquitectura Esperada
 
-- **API de Backend (Python/FastAPI)**: Utiliza la API de **Google Gemini Live** para procesar audio nativo y devolver eventos estructurados en streaming (`partial` y `final`) evaluando la semántica.
+- **API de Backend (Python/FastAPI)**: Utiliza la API de **Google AI Studio Live** para procesar audio nativo y devolver eventos estructurados en streaming (`partial` y `final`) evaluando la semántica.
 - **SDK JavaScript (NPM)**: Biblioteca cliente que maneja la grabación web (`MediaRecorder`) y los WebSockets, exponiendo métodos simples (`onPartial`, `onFinal`, `start`, `stop`).
 - **Aplicación de Demostración**: Un cliente web minimalista que muestra la experiencia implementando el motor y su sistema de contexto a medida (Instrucción de formato + Contexto de Background).
 

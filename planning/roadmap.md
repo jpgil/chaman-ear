@@ -12,18 +12,18 @@
 
 ### Tareas
 
-- [ ] Investigar la API de Google Gemini Live:
+- [ ] Investigar la API de Google AI Studio Live:
   - [ ] ¿Acepta conexión WebSocket nativa (vía Python/FastAPI), o requiere el SDK oficial (`google-genai`)?
   - [ ] ¿Acepta audio en formato WebM/Opus, o requiere PCM/WAV?
   - [ ] ¿Emite hipótesis parciales nativamente, o solo texto cuando considera una unidad completa?
   - [ ] ¿Cuál es el límite real de tokens del system prompt?
-- [ ] Crear un script de prueba mínimo en Python que envíe audio a Gemini Live y reciba texto, para validar la viabilidad técnica.
+- [ ] Crear un script de prueba mínimo en Python que envíe audio a Google AI Studio Live y reciba texto, para validar la viabilidad técnica.
 - [ ] Documentar hallazgos en `docs/research/gemini-live-api.md`.
 
 ### Criterios de "done"
 
 - Las preguntas abiertas de las specs tienen respuesta documentada.
-- Existe un script funcional en Python que demuestra la comunicación con Gemini Live.
+- Existe un script funcional en Python que demuestra la comunicación con Google AI Studio Live.
 
 ---
 
@@ -89,7 +89,7 @@
 
 ## Fase 3: Servidor (API)
 
-**Objetivo:** Implementar el proxy WebSocket-a-WebSocket que conecta el SDK con Gemini Live, incluyendo el system prompt como artefacto configurable.
+**Objetivo:** Implementar el proxy WebSocket-a-WebSocket que conecta el SDK con Google AI Studio Live, incluyendo el system prompt como artefacto configurable.
 
 ### Tareas
 
@@ -102,7 +102,7 @@
   - [ ] Test: sustituye `{context}` y `{formatInstruction}` con los valores de la sesión.
   - [ ] Test: usa el `formatInstruction` por defecto si el cliente no lo envía.
 - [ ] **Proxy a Gemini Live:**
-  - [ ] Test: abre conexión WebSocket con Gemini Live al recibir `start`.
+  - [ ] Test: abre conexión WebSocket con Google AI Studio Live al recibir `start`.
   - [ ] Test: reenvía chunks de audio binario a Gemini.
   - [ ] Test: traduce la respuesta de Gemini en eventos `partial` y `final`.
   - [ ] Test: incluye `timestamp` ISO 8601 en cada evento.
@@ -115,7 +115,7 @@
 
 ### Criterios de "done"
 
-- Todos los tests unitarios pasan (con Gemini Live mockeado donde sea necesario).
+- Todos los tests unitarios pasan (con Google AI Studio Live mockeado donde sea necesario).
 - El servidor arranca con `pnpm dev` y acepta conexiones WebSocket.
 - El system prompt se carga desde el archivo externo y se sustituyen las variables.
 
@@ -154,7 +154,7 @@
 
 ## Fase 5: Integración End-to-End y Pruebas
 
-**Objetivo:** Validar que las tres capas (SDK + Servidor + Gemini) funcionan juntas en un flujo real completo.
+**Objetivo:** Validar que las tres capas (SDK + Servidor + Google AI Studio Live) funcionan juntas en un flujo real completo.
 
 ### Tareas
 
