@@ -28,3 +28,11 @@
 - Separación de reglas técnicas en `docs/technical-guidelines.md`, fuera del MaC.
 - Creados `AGENTS.md`, `session-TEMPLATE.md`, `MaC.md`.
 - Sección Contributing agregada al README.
+
+## 2026-02-27 - Configuración de Agente e Investigación
+
+- Configuración de carga automática de `AGENTS.md` mediante `.agent/instructions.md`.
+- Investigación de la API de Gemini Live Streaming en `docs/investigacion/Arquitectura de Streaming Speech-to-Text Gemini.md`
+- Revisión documental profunda de Arquitectura e EETT (v2): adoptado `google-genai` sobre Python, Web Audio API remuestreando a PCM 16kHz Base64, e iteración a una interfaz de UX híbrida (callbacks asíncronos para Feedback Acústico y Contenido Inteligente).
+- Guía técnica `docs/technical-guidelines.md` actualizada con advertencias estrictas sobre manejo de credenciales Git y resolución de layouts Mermaid/Dagre.
+- Cierre de sesión y reflexión de PM: el valor de "deep research" para descartar supuestas arquitecturas previo a planificar (y usar consultas abiertas de IA).
